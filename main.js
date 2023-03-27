@@ -4,8 +4,16 @@ let elGenre = selectEl("#selectgenre")
 let elBtn = selectEl("#btn")
 let elForm = selectEl("#form")
 let elSelect = selectEl("#selectsort")
+let elSelectGenre = selectEl("#selectgenre")
 let arrGenr = []
 let sortFilm = []
+
+elSelect.addEventListener("change", evt => {
+    evt.preventDefault()
+    let sortValue = evt.target.value
+    
+})
+
 
 elSelect.addEventListener("change", evt => {
     evt.preventDefault()
