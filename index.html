@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+</head>
+<body style="font-family: 'Lobster' ;" class="bg-gradient-to-r from-green-400 to-blue-500 px-3 py-5 font-sans font-family:BlinkMacSystemFont, Segoe UI, Roboto, Arial, Noto Sans, sans-serif">
+    <!-- bismillah -->
+    <header class="container mx-auto px-6 py-4 flex items-center justify-around">
+        <h1 class="text-center text-white text-7xl">MOVIES</h1>
+        <nav class="flex justify-center space-x-4">
+            <a href="/dashboard" class="font-medium px-3 py-2 text-black rounded-lg hover:bg-slate-100 hover:text-slate-900">Home</a>
+            <a href="/team" class="font-medium px-3 py-2 text-black rounded-lg hover:bg-slate-100 hover:text-slate-900">Team</a>
+            <a href="/projects" class="font-medium px-3 py-2 text-black rounded-lg hover:bg-slate-100 hover:text-slate-900">Projects</a>
+            <a href="/reports" class="font-medium px-3 py-2 text-black rounded-lg hover:bg-slate-100 hover:text-slate-900">Reports</a>
+        </nav>
+    </header>
+    <h1 style="height: 5px; border-radius: 10px; margin: 0 auto; width: 1100px; background-color: chartreuse;"></h1>
+    <main class="container mx-auto px-6 py-4">
+        <form id="form" class="flex items-center justify-center gap-4">
+            <input class="border-slate-200 rounded-md placeholder-slate-400 px-5 contrast-more:border-slate-400 contrast-more:placeholder-slate-500 b py-1 hover:bg-blue-300 h-9" type="text" placeholder="Search"/>
+            <select name="selectgenre" id="selectgenre" class="h-9 block w-1/4 rounded-md border-0 bg-white py-1 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 hover:bg-blue-300">
+                <option value="all">All</option>
+            </select>
+            <select name="selectsort" id="selectsort" class="h-9 block w-1/4 rounded-md border-0 bg-white py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 hover:bg-blue-300">
+                <option value="all">All</option>
+                <option value="a-z">A-Z</option>
+                <option value="z-a">Z-A</option>
+            </select>
+            <button type="submit" id="btn" class="py-1 px-4 h-9 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">Submit</button>
+        </form>
+        
+        <ul id="list" class="container grid grid-cols-4 box gap-4 align-items-center justify-content-center mt-8 text-slate-50">
+            
+        </ul>
+    </main>
+    <script src="./films.js"></script>
+    <script src="./util.js"></script>
+    <script src="./main.js"></script>
+</body>
+</html>
