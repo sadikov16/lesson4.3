@@ -1,4 +1,4 @@
-let films = [
+var films = [
 	{
 		id: '287947',
 		Title:'Shazam!',
@@ -7,7 +7,7 @@ let films = [
 			'A boy is given the ability to become an adult superhero in times of need with a single magic word.',
 		Year: 1553299200,
 		genres: ['Action', 'Comedy', 'Fantasy'],
-		link: 'https://youtu.be/1T6iVq0Qxos',
+		link: 'https://youtube.com/embed/1T6iVq0Qxos',
 	},
 	{
 		id: '299537',
@@ -17,7 +17,7 @@ let films = [
 			'The story follows Carol Danvers as she becomes one of the universe’s most powerful heroes when Earth is caught in the middle of a galactic war between two alien races. Set in the 1990s, Captain Marvel is an all-new adventure from a previously unseen period in the history of the Marvel Cinematic Universe.',
 		Year: 1551830400,
 		genres: ['Action', 'Adventure', 'Science Fiction'],
-		link: 'https://youtu.be/HBFrura5II4'
+		link: 'https://youtube.com/embed/HBFrura5II4'
 	},
 	{
 		id: '522681',
@@ -27,7 +27,7 @@ let films = [
 			'Six strangers find themselves in circumstances beyond their control, and must use their wits to survive.',
 		Year: 1546473600,
 		genres: ['Thriller', 'Action', 'Horror', 'Science Fiction'],
-		link: 'https://youtu.be/4LGB-JMBB8w'
+		link: 'https://youtube.com/embed/4LGB-JMBB8w'
 	},
 	{
 		id: '166428',
@@ -37,7 +37,7 @@ let films = [
 			'As Hiccup fulfills his dream of creating a peaceful dragon utopia, Toothless’ discovery of an untamed, elusive mate draws the Night Fury away. When danger mounts at home and Hiccup’s reign as village chief is tested, both dragon and rider must make impossible decisions to save their kind.',
 		Year: 1546473600,
 		genres: ['Animation', 'Family', 'Adventure'],
-		link: 'https://youtu.be/7aOYwgatbN0'
+		link: 'https://youtube.com/embed/7aOYwgatbN0'
 	},
 	{
 		id: '450465',
@@ -57,7 +57,7 @@ let films = [
 			"The story is based on Robert Louis Stevenson's Treasure Island novel.",
 		Year: 1520035200,
 		genres: ['Animation'],
-		link: 'https://youtu.be/746nALTXlKY'
+		link: 'https://youtube.com/embed/746nALTXlKY'
 	},
 	{
 		id: '329996',
@@ -67,7 +67,7 @@ let films = [
 			'A young elephant, whose oversized ears enable him to fly, helps save a struggling circus, but when the circus plans a new venture, Dumbo and his friends discover dark secrets beneath its shiny veneer.',
 		Year: 1553644800,
 		genres: ['Adventure', 'Family', 'Fantasy'],
-		link: 'https://youtu.be/WkrrVWME1J8'
+		link: 'https://youtube.com/embed/WkrrVWME1J8'
 	},
 	{
 		id: '299536',
@@ -77,7 +77,7 @@ let films = [
 			'As the Avengers and their allies have continued to protect the world from threats too large for any one hero to handle, a new danger has emerged from the cosmic shadows: Thanos. A despot of intergalactic infamy, his goal is to collect all six Infinity Stones, artifacts of unimaginable power, and use them to inflict his twisted will on all of reality. Everything the Avengers have fought for has led up to this moment - the fate of Earth and existence itself has never been more uncertain.',
 		Year: 1524618000,
 		genres: ['Adventure', 'Action', 'Science Fiction'],
-		link: 'https://youtu.be/lAbMtFUHPfc'
+		link: 'https://youtube.com/embed/lAbMtFUHPfc'
 	},
 	{
 		id: '458723',
@@ -87,7 +87,7 @@ let films = [
 			'Husband and wife Gabe and Adelaide Wilson take their kids to their beach house expecting to unplug and unwind with friends. But as night descends, their serenity turns to tension and chaos when some shocking visitors arrive uninvited.',
 		Year: 1552521600,
 		genres: ['Documentary', 'Family'],
-		link: 'https://youtu.be/RZnFT9lz5pI'
+		link: 'https://youtube.com/embed/RZnFT9lz5pI'
 	},
 	{
 		id: '424783',
@@ -97,7 +97,7 @@ let films = [
 			'On the run in the year 1987, Bumblebee finds refuge in a junkyard in a small Californian beach town. Charlie, on the cusp of turning 18 and trying to find her place in the world, discovers Bumblebee, battle-scarred and broken.  When Charlie revives him, she quickly learns this is no ordinary yellow VW bug.',
 		Year: 1544832000,
 		genres: ['Action', 'Adventure', 'Science Fiction'],
-		link: 'https://youtu.be/WZsYRVtBjF8'
+		link: 'https://youtube.com/embed/WZsYRVtBjF8'
 	},
 	{
 		id: '920',
