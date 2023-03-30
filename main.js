@@ -1,105 +1,115 @@
 // bismillah
-let elList = selectEl("#list")
-let elGenre = selectEl("#selectgenre")
-let elBtn = selectEl("#btn")
-let elForm = selectEl("#form")
-let elSelect = selectEl("#selectsort")
-let elSelectGenre = selectEl("#selectgenre")
-let arrGenr = []
-let sortFilm = []
+let elForm = select("#form")
+let elSelectGenre = select("#selectgenre")
+let elList = select("#list")
+let cardTemplate = select("#card-template").content
+let modalTemplate = select("#modal-template").content
 
-elSelect.addEventListener("change", evt => {
+elForm.addEventListener("submit", evt => {
     evt.preventDefault()
-    let sortValue = evt.target.value
     
-})
-
-
-elSelect.addEventListener("change", evt => {
-    evt.preventDefault()
-    let sortValue = evt.target.value
+    let {search, selectgenre, selectsort} = evt.target.elements
     
-    if(sortValue == "a-z"){
-        films.sort((a, b) => {
-            const nameA = a.Title.toUpperCase()
-            const nameB = b.Title.toUpperCase()
-            if (nameA > nameB){
-                return 1
-            } else if (nameA < nameB){
-                return -1
-            } else{
-                return 0
-            }
-        })
-        renderFunct(films, elList)
-    } else if (sortValue == "z-a"){
-        films.sort((a, b) => {
-            const nameA = b.Title.toUpperCase()
-            const nameB = a.Title.toUpperCase()
-            if (nameA > nameB){
-                return 1
-            } else if (nameA < nameB){
-                return -1
-            } else{
-                return 0
-            }
-        })
-        renderFunct(films, elList)
+    let regex = new RegExp(search.value.trim(), "gi")
+    
+    let searchedFilm = films.filter((film) => film.Title.match(regex))
+    
+    if(selectgenre.value != "all"){
+        let filterByGender = searchedFilm.filter((film) => 
+        film.genres.includes(genre.value)
+        )
+        searchedFilm = filterByGender
     }
+    
+    if(selectsort.value == "a-z"){
+        searchedFilm.sort((a, b) => {
+            if(a.Title > b.Title){
+                return 1
+            }else if (a.Title < b.Title){
+                return -1
+            }else{
+                return 0
+            }
+        })
+    }else if(selectsort.value == "z-a"){
+        searchedFilm.sort((a, b) => {
+            if(b.Title > a.Title){
+                return 1
+            }else if (b.Title < a.Title){
+                return -1
+            }else{
+                return 0
+            }
+        })
+    }
+    renderFunc(searchedFilm, elList)
 })
 
-
-function renderFunct(array, element) {
-    element.innerHTML = null
-    array.forEach(film => {
-        let newLi = creatEl("li");
-        let newImg = creatEl("img");
-        let newH2 = creatEl("h2");
-        let newP = creatEl("p");
-        let newBtn = creatEl("button");
+function renderGenre(array, element){
+    let genreArr = []
+    
+    array.forEach((film) => {
+        film.genres.forEach(genre => {
+            !genreArr.includes(genre) ? genreArr.push(genre) : null
+            
+        })
         
-        setAtt(newLi, "class", "flex flex-col items-center justify-and gap-2 rounded-lg pb-3 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 ")
-        setAtt(newImg, "src", film.Poster)
-        setAtt(newImg, "style", "object-fit: cover")
-        setAtt(newH2, "class", "capitalize font-bold text-lime-300 font-x text-2xl text-center w-4/5 h-10 mb-7")
-        setAtt(newP, "class", "text-lg text-black font-semibold m-3")
-        setAtt(newBtn, "class", "py-1 px-4 h-9 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75")
-        setAtt(newBtn, "type", "button")
-        
-        newH2.textContent = film.Title;
-        newP.textContent = film.Year;
-        newBtn.textContent = "Show More";
-        
-        newLi.append(newImg, newH2, newP, newBtn);
-        elList.append(newLi)
-    });
-}
-
-
-renderFunct(films, elList)
-
-
-function sortGenr(array) {
-    array.forEach(film => {
-        film.genres.forEach((genre)=>
-        arrGenr.includes(genre) ? null : arrGenr.push(genre));
+    })
+    
+    genreArr.forEach(genre => {
+        let newOption = create("Option")
+        newOption.textContent = genre
+        newOption.value = genre
+        element.append(newOption)
     })
 }
+renderGenre(films, selectgenre)
 
-sortGenr(films)
 
-
-function oppGenre(array) {
-    array.forEach(film=> {
-        let newOpt=creatEl("option")
-        newOpt.textContent = film;
-        elGenre.append(newOpt)
-    });
+function renderFunc(array, element){
+    element.innerHTML = null
+    
+    array.forEach(film => {
+        let cloneTemplate = cardTemplate.cloneNode(true)
+        
+        let li = select("li", cloneTemplate)
+        let img = select("img", cloneTemplate)
+        let h2 = select("h2", cloneTemplate)
+        let btn = select("button", cloneTemplate)
+        
+        btn.addEventListener("click", (evt) => {
+            let filmId = evt.target.dataset.id
+            let cloneTemplateModal = modalTemplate.cloneNode(true)
+            
+            let foundFilm = array.find((item) => item.id == filmId)
+            
+            let modal = select("#modal", cloneTemplateModal)
+            let iframe = select("iframe", cloneTemplateModal)
+            let h2 = select("h2", cloneTemplateModal)
+            let h3 = select("h3", cloneTemplateModal)
+            let p = select("p", cloneTemplateModal)
+            
+            iframe.href = foundFilm.link
+            h2.textContent = foundFilm.Title
+            h3.textContent = `Genres: ${foundFilm.genres.join(", ")}`
+            p.textContent = foundFilm.overview
+            document.querySelector("body").append(modal)
+        })
+        
+        
+        img.src = film.Poster
+        h2.textContent = film.Title
+        btn.dataset.id = film.id
+        
+        
+        element.append(li)
+        
+    })
 }
+renderFunc(films, elList)
 
-oppGenre(arrGenr)
 
-
-elBtn.addEventListener("submit", (evt)=> {
-    box.innerHTML = ""
-})
+function deleteModal(){
+    const elModal = document.getElementById("modal")
+    elModal.remove()
+}
