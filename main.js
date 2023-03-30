@@ -16,7 +16,7 @@ elForm.addEventListener("submit", evt => {
     
     if(selectgenre.value != "all"){
         let filterByGender = searchedFilm.filter((film) => 
-        film.genres.includes(genre.value)
+        film.genres.includes(selectgenre.value)
         )
         searchedFilm = filterByGender
     }
